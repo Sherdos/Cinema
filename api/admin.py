@@ -55,6 +55,9 @@ class MovieAdmin(admin.ModelAdmin):
         (None, {
             "fields": (("year", "world_premiere", "country"),)
         }),
+        (None, {
+            "fields": (("genres", "category"),)
+        }),
         ("Options", {
             "fields": (("url",  ),)
         }),
@@ -91,7 +94,7 @@ class RatingAdmin(admin.ModelAdmin):
 @admin.register(MovieShots)
 class MovieShotsAdmin(admin.ModelAdmin):
     """Кадры из фильма"""
-    list_display = ("title", "movie", "get_image")
+    list_display = ("movie", "get_image")
     readonly_fields = ("get_image",)
 
     def get_image(self, obj):

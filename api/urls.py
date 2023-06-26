@@ -1,10 +1,18 @@
-from django.urls import path
+from django.urls import path,include
 from .views import *
+from rest_framework import routers
+
+
+
+router = routers.DefaultRouter()
+router.register(r'movie', MovieViewSet, basename='movie')
+
 
 urlpatterns = [
-    path('list/', MovieAPIView.as_view()),
-    path('list/<slug:slug>/', CategoryAPIView.as_view()),
-    path('movie/<int:pk>/', MovieDetailAPIView.as_view()),
+    path('', include(router.urls)),
+    path('genre/<slug:slug>/', GenreOrderAPIView.as_view()),
     path('search/', SearchAPIView.as_view()),
+    path('create/review/', ReviewCreateAPIView.as_view()),
+    path('create/rating/', RatingCreateAPIView.as_view()),
 
 ]
