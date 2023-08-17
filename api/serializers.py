@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from .models import *
 
+from api.models.models_movie import Movie
+from api.models.models_other import RatingStar, Reviews
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -13,6 +14,7 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reviews
         fields='__all__'
+
 
 class RatingStarSerializer(serializers.ModelSerializer):
     class Meta:

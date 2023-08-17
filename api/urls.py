@@ -1,5 +1,8 @@
 from django.urls import path,include
-from .views import *
+
+from api.views.views_movie import MovieViewSet
+from api.views.views_order import GenreOrderAPIView, SearchAPIView
+from api.views.views_other import RatingCreateAPIView, ReviewCreateAPIView
 from rest_framework import routers
 
 
