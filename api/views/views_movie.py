@@ -3,7 +3,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework.generics import ListAPIView
 from api.models.models_movie import Movie
 
-from api.serializers import MovieSerializer
+from api.serializers.serializers_movie import MovieSerializer
 
 class MovieViewSet(ReadOnlyModelViewSet):
     queryset = Movie.objects.all()

@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from api.models import MovieShots, Reviews
+from api.models.models_movie import MovieShots
+from api.models.models_other import Reviews
 from django.utils.safestring import mark_safe
 
 class MovieShotsInline(admin.TabularInline):

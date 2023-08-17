@@ -1,7 +1,8 @@
 from rest_framework.generics import CreateAPIView
 from api.models.models_other import Rating, RatingStar, Reviews
 
-from api.serializers import RatingStarSerializer, ReviewSerializer
+from api.serializers.serializers_other import RatingStarSerializer
+from api.serializers.serializers_movie import ReviewSerializer
 
 
 class ReviewCreateAPIView(CreateAPIView):

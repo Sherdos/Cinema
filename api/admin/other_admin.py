@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from api.models import Rating, RatingStar, Reviews
+from api.models.models_other import Rating, RatingStar, Reviews
 
 @admin.register(Reviews)
 class ReviewAdmin(admin.ModelAdmin):

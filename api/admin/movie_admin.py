@@ -1,7 +1,7 @@
 from django.contrib import admin
-from api.admin.admin_inline import MovieShotsInline, ReviewInline
+from api.admin.inline_admin import MovieShotsInline, ReviewInline
 
-from api.models import Category, Genre, Movie, MovieShots
+from api.models.models_movie import Category, Genre, Movie, MovieShots
 from django.utils.safestring import mark_safe
 
 
