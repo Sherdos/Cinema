@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: cinema
+
+    command: ['/CinemaApi/docker/app.sh']
+
+    ports:
+      - 8000:8000

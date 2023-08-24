@@ -3,7 +3,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField("Категория", max_length=150)
-    description = models.TextField("Описание")
+    description = models.TextField("Описание", null=True, blank=True)
     url = models.SlugField(max_length=160, unique=True)
 
     def __str__(self):
@@ -16,7 +16,7 @@ class Category(models.Model):
 
 class Genre(models.Model):
     name = models.CharField("Имя", max_length=100)
-    description = models.TextField("Описание")
+    description = models.TextField("Описание", null=True, blank=True)
     url = models.SlugField(max_length=160, unique=True)
 
     def __str__(self):
@@ -30,7 +30,7 @@ class Genre(models.Model):
 class Movie(models.Model):
     title = models.CharField("Название", max_length=100)
     tagline = models.CharField("Слоган", max_length=100, default='')
-    description = models.TextField("Описание")
+    description = models.TextField("Описание",  null=True, blank=True)
     poster = models.ImageField("Постер", upload_to="movies/")
     year = models.PositiveSmallIntegerField("Дата выхода", default=date.today())
     genres = models.ManyToManyField(Genre, verbose_name="жанры")

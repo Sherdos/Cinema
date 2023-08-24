@@ -10,6 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
     """Категории"""
     list_display = ("id", "name", "url")
     list_display_links = ("name",)
+    prepopulated_fields = {'url' : ['name']}
 
 
 @admin.register(Movie)
@@ -18,6 +19,7 @@ class MovieAdmin(admin.ModelAdmin):
     list_display = ("title", "category", "url",)
     list_filter = ("category", "year")
     search_fields = ("title", "category__name")
+    prepopulated_fields = {'url' : ['title']}
     inlines = [MovieShotsInline, ReviewInline]
     save_on_top = True
     save_as = True
@@ -30,7 +32,7 @@ class MovieAdmin(admin.ModelAdmin):
             "fields": ("description", ("poster", "get_image"))
         }),
         (None, {
-            "fields": (("year", "world_premiere", "country"),)
+            "fields": (("year"),)
         }),
         (None, {
             "fields": (("genres", "category"),)
@@ -50,6 +52,8 @@ class MovieAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     """Жанры"""
     list_display = ("name", "url")
+    prepopulated_fields = {'url' : ['name']}
+    
 
 
 @admin.register(MovieShots)
