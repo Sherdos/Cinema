@@ -3,6 +3,30 @@ from django.db import models
 from api.models.models_movie import Movie
 
 
+class Category(models.Model):
+    name = models.CharField("Категория", max_length=150)
+    description = models.TextField("Описание", null=True, blank=True)
+    url = models.SlugField(max_length=160, unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
+
+class Genre(models.Model):
+    name = models.CharField("Имя", max_length=100)
+    description = models.TextField("Описание", null=True, blank=True)
+    url = models.SlugField(max_length=160, unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Жанр"
+        verbose_name_plural = "Жанры"
 
 
 class RatingStar(models.Model):
