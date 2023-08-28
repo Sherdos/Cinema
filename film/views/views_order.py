@@ -1,8 +1,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListAPIView
 
-from api.models.models_video import Genre, Movie
-from api.serializers.serializers_movie import MovieSerializer
+from film.models.models_base import Genre
+from film.models.models_movie import Movie
+from film.serializers import MovieSerializer
 
 
 class GenreOrderAPIView(ListAPIView):

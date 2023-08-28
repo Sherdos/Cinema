@@ -1,7 +1,6 @@
 from django.apps import AppConfig
 
 
-class ApiConfig(AppConfig):
+class FilmConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api'
-    verbose_name = 'Кино'
+    name = 'film'

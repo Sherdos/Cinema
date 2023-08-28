@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'api',
+    # 'api',
+    'film',
 ]
 
 MIDDLEWARE = [
@@ -133,9 +134,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
-
-
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
@@ -143,19 +141,19 @@ CORS_ORIGIN_WHITELIST = (
 
 # Rest Framework
 REST_FRAMEWORK = {
-    
+
     # 'DEFAULT_PERMISSION_CLASSES': [
     #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     # ],
-    
-    'DEFAULT_RENDERER_CLASSES':[
+
+    'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     ],
-    
+
     # 'DEFAULT_AUTHENTICATION_CLASSES': (
-    #     'rest_framework.authentication.TokenAuthentication',    
-    #     'rest_framework.authentication.BasicAuthentication',    
-    #     'rest_framework.authentication.SessionAuthentication',    
+    #     'rest_framework.authentication.TokenAuthentication',
+    #     'rest_framework.authentication.BasicAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
     # ),
 }
