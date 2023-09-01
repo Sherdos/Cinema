@@ -1,8 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListAPIView
 
-from film.models.models_base import Genre
-from film.models.models_movie import Movie
+from film.models import Genre, Movie
 from film.serializers import MovieSerializer
 
 

@@ -1,7 +1,7 @@
 from rest_framework.generics import ListAPIView
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
-from film.models.models_movie import Movie
+from film.models import Movie
 from film.serializers import MovieSerializer
 
 

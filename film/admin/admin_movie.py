@@ -2,8 +2,25 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 from film.admin.inline import MovieShotsInline
-from film.admin.shema import movie
-from film.models.models_movie import Movie
+from film.models import Movie
+
+movie = (
+        (None, {
+            'fields': (('title'),)
+        }),
+    (None, {
+        'fields': ('description', ('poster', 'get_image', 'video'))
+    }),
+    (None, {
+        'fields': (('year'),)
+    }),
+    (None, {
+        'fields': (('genres', 'category'),)
+    }),
+    ('Options', {
+        'fields': (('url',),)
+    }),
+)
 
 
 @admin.register(Movie)

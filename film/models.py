@@ -1,5 +1,3 @@
-from datetime import date
-
 from django.db import models
 
 
@@ -29,17 +27,35 @@ class Genre(models.Model):
         verbose_name_plural = 'Жанры'
 
 
-class BaseVideo(models.Model):
+class Movie(models.Model):
     title = models.CharField('Название', max_length=100)
     tagline = models.CharField('Слоган', max_length=100, default='')
     description = models.TextField('Описание', null=True, blank=True)
     poster = models.URLField('ссылка на постер')
-    year = models.PositiveSmallIntegerField('Дата выхода', default=date.today())
+    year = models.PositiveSmallIntegerField('Дата выхода')
     genres = models.ManyToManyField(Genre, verbose_name='жанры')
     category = models.ForeignKey(
         Category, verbose_name='Категория', on_delete=models.SET_NULL, null=True
     )
     url = models.SlugField(max_length=130, unique=True)
+    video = models.URLField('ссылка на видео')
+
+    def __str__(self):
+        return self.title
 
     class Meta:
-        abstract = True
+        verbose_name = 'Фильм'
+        verbose_name_plural = 'Фильмы'
+
+
+class MovieShots(models.Model):
+
+    image = models.ImageField('Изображение', upload_to='movie_shots/')
+    movie = models.ForeignKey(Movie, verbose_name='Фильм', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.movie.id}'
+
+    class Meta:
+        verbose_name = 'Кадр из фильма'
+        verbose_name_plural = 'Кадры из фильма'

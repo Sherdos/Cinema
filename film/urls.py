@@ -10,6 +10,6 @@ router.register(r'movie', MovieViewSet, basename='movie')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('genre/<slug:slug>/', GenreOrderAPIView.as_view()),
+    path('genre/<slug:slug>/', GenreOrderAPIView.as_view(), name='order_genre'),
     path('search/', SearchAPIView.as_view()),
 ]

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from film.models.models_movie import MovieShots
+from film.models import MovieShots
 
 
 class MovieShotsInline(admin.TabularInline):
